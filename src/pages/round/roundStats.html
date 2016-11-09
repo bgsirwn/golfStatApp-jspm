@@ -1,0 +1,61 @@
+<template>
+    <style>
+    .facebook-card .card-header {
+        display: block;
+        padding: 10px;
+    }
+    .facebook-card .facebook-avatar {
+        float: left;
+    }
+    .facebook-card .facebook-name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .facebook-card .facebook-date {
+        font-size: 13px;
+        color: #8e8e93;
+    }
+    .facebook-card .card-footer {
+        background: #fafafa;
+    }
+    .facebook-card .card-footer a {
+        color: #81848b;
+        font-weight: 500;
+    }
+    .facebook-card .card-content img {
+        display: block;
+    }
+    .facebook-card .card-content-inner {
+        padding: 15px 10px;
+    }  
+    </style>
+ 
+<div class="content-block-title">Stats of round played on ${course.courseData.courseName}</div>
+ 
+<div class="card facebook-card">
+  <div class="card-header no-border">
+    <div class="facebook-name">Score Brut : ${brutScore} - Score Net : ${brutScore-playerPlayingHcp} - Score Stb : ${stbScore}</div>
+    <div class="facebook-date">Played on </div>
+  </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+        <div style="border-style: outset; margin-bottom: 1em; padding-bottom: 1em;">
+            <canvas id="scorePerParStats" width="300" height="200"></canvas>
+        </div>
+        <div style="border-style: outset; margin-bottom: 1em; padding-bottom: 1em;">
+            <canvas id="scoring" width="300" height="200"></canvas>
+        </div>
+        <div style="border-style: outset; margin-bottom: 1em; padding-bottom: 1em;">
+            <canvas id="driveAccuracy" width="300" height="200"></canvas>
+        </div>
+        <div style="border-style: outset; margin-bottom: 1em; padding-bottom: 1em;">
+            <canvas id="GIRstats" width="300" height="200"></canvas>
+        </div>
+        <div style="border-style: outset; margin-bottom: 1em; padding-bottom: 1em;">
+            <canvas id="puttstats" width="300" height="200"></canvas>
+        </div>
+    </div>
+  </div>
+</div>
+ 
+</template>

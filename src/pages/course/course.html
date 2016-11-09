@@ -1,0 +1,133 @@
+<template>
+    <require from="../dirty"></require>
+    <form dirty.bind="isDirty">
+        <div class="list-block">
+            <ul>
+                <li class="form-group">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label" style="width: 45%;" t="name">Name</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="Name" value.bind="course.courseName & validate" required>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label" style="width: 45%;" t="country">Country</div>
+                            <div>
+                                <select name="countryListSelection" value.bind="course.country">
+                                    <option repeat.for="country of countries" model.bind="country">${country}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="align-top form-group">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label" style="width: 45%;" t="par">Par</div>
+                            <div class="item-input">
+                                <input type="number" placeholder="Par" value.bind="course.par & validate" required>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="align-top form-group">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label" style="width: 45%;" t="SSS">SSS</div>
+                            <div class="item-input">
+                                <input type="number" placeholder="SSS" value.bind="course.SSS & validate" required>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="align-top form-group">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label" style="width: 45%;" t="slope">Slope</div>
+                            <div class="item-input">
+                                <input type="number" placeholder="Slope" value.bind="course.slope & validate" required>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">18 holes</div>
+                            <div class="item-input">
+                                <label class="label-switch">
+                                <input type="checkbox" checked.bind="toggle18" change.delegate="adjustNbrHoles()"/>
+                                <div class="checkbox"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                        <!-- Each "cell" has col-[widht in percents] class -->
+                        <div class="col-10"><i class="icon icon-prev-big" click.delegate="goToPrevHole()"></i></div>
+                        <div class="col-80">
+                            Hole ${currHole}
+                        </div>
+                        <div class="col-10"><i class="icon icon-next-big" click.delegate="goToNextHole()"></i></div>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <div class="list-block">
+                        <ul>
+                            <li class="form-group">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label" style="width: 45%;" t="par">Par</div>
+                                        <div class="item-input">
+                                            <input type="number" placeholder="Index" value.bind="course.holes[currHole-1].par & validate" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label" style="width: 45%;" t="strokeIndex">Index</div>
+                                        <div class="item-input">
+                                            <input type="number" placeholder="Index" value.bind="course.holes[currHole-1].strokeIndex & validate" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label" style="width: 45%;" t="length">Length (m)</div>
+                                        <div class="item-input">
+                                            <input type="number" placeholder="Length (m)" value.bind="course.holes[currHole-1].lengthM & validate" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="row">
+                <div class="col-50">
+                    <a href="#" class="button button-fill color-green ${isDirty ? '' : 'disabled'}" click.delegate="saveCourse()" t="save">Save</a>
+                </div>
+                <div class="col-50">
+                    <a href="#" class="button button-fill color-red ${vin._id ? '' : 'disabled'}" click.delegate="deleteCourse()" t="delete">Delete</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</template>

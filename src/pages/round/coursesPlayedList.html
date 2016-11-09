@@ -1,0 +1,14 @@
+<template>
+    <h3>Select for which course you want the rounds of
+    <div class="list-block">
+        <ul>
+            <li repeat.for="course of coursesPlayed" >
+                <a href="#" class="item-link item-content"  click.delegate="viewRoundForCourse(course.courseId)">
+                    <div class="item-inner">
+                        <div class="item-title">${course.name}</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div> 
+</template>

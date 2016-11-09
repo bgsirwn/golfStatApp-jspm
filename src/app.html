@@ -1,0 +1,108 @@
+<template>
+    <require from="framework7/dist/css/framework7.material.min.css"></require>
+    <require from="font-awesome/css/font-awesome.css"></require>
+    <require from="framework7/dist/css/framework7.material.colors.min.css"></require>
+    <require from="framework7/dist/js/framework7.min.js"></require>
+    <require from="./css/MyCellar.css"></require>
+
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block-title">Menu</div>
+        <div class="list-block">
+            <ul>
+                <li>
+                    <a href="#" class="item-link item-content close-panel" click.delegate = "router.navigate('search')">
+                        <div class="item-media"><i class="icon icon-home"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="search">Search</div>
+                    </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-link item-content close-panel" click.delegate = "router.navigate('course')">
+                        <div class="item-media"><i class="icon icon-course"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="course">Course mngmt</div>
+                    </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-link item-content close-panel"  click.delegate = "router.navigate('coursesPlayed')">
+                        <div class="item-media"><i class="icon icon-startround"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="viewRounds">View rounds</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-link item-content close-panel" click.delegate = "router.navigate('stats')">
+                        <div class="item-media"><i class="icon icon-rapport"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="statistics">Statistics</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-link item-content close-panel" click.delegate = "router.navigate('test')">
+                        <div class="item-media"><i class="icon icon-rapport"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="test">test</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block-title">Configuration</div>
+        <div class="list-block">
+            <ul>
+                <li>
+                    <a href="test.html" class="item-link item-content close-panel" click.delegate = "router.navigate('config')">
+                        <div class="item-media"><i class="icon icon-form-settings"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" t="config">Configuration</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+ 			       <div class="left">
+		            <a href="#" class="link icon-only" click.delegate = "goBack()">
+		                <i class="icon icon-back"></i>
+    		        </a>
+        		</div>
+                <div class="center sliding">Golf Stat App</div>
+				<div class="right">
+					<a href="#" class="link icon-only open-panel">
+						<i class="icon icon-bars"></i>
+					</a>
+				</div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div class="page">
+                    <!-- Scrollable page content -->
+                    <div data-page="home" class="page-content">
+                        <router-view></router-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

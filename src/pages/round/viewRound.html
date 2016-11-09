@@ -1,0 +1,111 @@
+<template>
+    <style>
+    .facebook-card .card-header {
+        display: block;
+        padding: 10px;
+        min-height: 34px;
+    }
+    .facebook-card .facebook-avatar {
+        float: left;
+    }
+    .facebook-card .facebook-name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .facebook-card .facebook-date {
+        font-size: 13px;
+        color: #8e8e93;
+    }
+    .facebook-card .card-footer {
+        background: #fafafa;
+    }
+    .facebook-card .card-footer a {
+        color: #81848b;
+        font-weight: 500;
+    }
+    .facebook-card .card-content img {
+        display: block;
+    }
+    .facebook-card .card-content-inner {
+        padding: 5px 10px;
+    }  
+    .facebook-card .card-header p {
+      display:table-cell;
+      width:130px;
+      font-size: 14px;
+    }
+
+    .roundedRect {
+      color: #fff;
+      text-shadow: -1px -1px 0 #888;
+      font-weight: bold;
+      text-align: center;
+      background: #999;
+      border-radius: 15px;
+    }
+    </style>
+<!--<table repeat.for="table of roundForDisplay">
+<tr>
+  <th></th>
+  <th repeat.for="header of table.line1" style="padding: 4px; font-weight: bold;">${header}</th>
+  <th style="padding: 4px; font-weight: bold;">Total</th>
+</tr>
+<tr>
+  <td style="padding: 8px; border-top: 1px solid;"> PAR</td>
+  <td style="padding: 8px; border-top: 1px solid;" repeat.for="par of table.line2.pars">${par}</td>
+  <td style="padding: 8px; font-weight: bold; border-top: 1px solid;">${table.line2.sum}</td>
+</tr>
+<tr style="border-top: 1px solid;">
+  <td style="padding: 8px; border-top: 1px solid;">SCORE</td>
+  <td style="padding: 8px; background-color: ${score.bc}; color: ${score.tc}; border-top: 1px solid;" repeat.for="score of table.line3.scores">${score.s}</td>
+  <td style="padding: 8px; font-weight: bold; border-top: 1px solid;">${table.line3.sum}</td>
+</tr>
+</table>
+-->
+<p style="padding: 10px;">Round played on ${course.courseData.courseName} by ${round.playerName} on ${getDateTime(round.dateTime).day} at ${getDateTime(round.dateTime).hour}</p>
+<div repeat.for="table of roundForDisplay">
+  <div class="row">
+      <!-- Each "cell" has col-[widht in percents] class -->
+      <div class="col-15" style="padding: 8px; font-weight: bold;"></div>
+      <div repeat.for="header of table.line1" class="col-7" style="padding: 4px; font-weight: bold;">${header}</div>
+      <div class="col-15" style="padding: 4px; font-weight: bold;">Total</div>
+  </div>   
+  <div class="row" style="border-top: black; border-top-style: solid; border-top-width: thin;">
+      <!-- Each "cell" has col-[widht in percents] class -->
+      <div class="col-15" style="padding: 8px;">PAR</div>
+      <div repeat.for="par of table.line2.pars" class="col-7" style="padding: 8px;">${par}</div>
+      <div class="col-15" style="padding: 8px; font-weight: bold;">${table.line2.sum}</div>
+  </div>   
+  <div class="row" style="border-top: black; border-top-style: solid; border-top-width: thin;">
+      <!-- Each "cell" has col-[widht in percents] class -->
+      <div class="col-15" style="padding: 8px;">Score</div>
+      <div repeat.for="score of table.line3.scores" class="col-7" style="padding: 8px; background-color: ${score.bc}; color: ${score.tc}" click.delegate="selectHole(score.hole)">${score.s}</div>
+      <div class="col-15" style="padding: 8px; font-weight: bold;">${table.line3.sum}</div>
+  </div>   
+  <br>
+</div>
+
+
+<div if.bind="selectedHole!=0" class="content-block-title">Hole # ${selectedHole}</div>
+ 
+<div repeat.for="s of shotsForSelHole" class="card facebook-card">
+  <div class="card-header no-border">
+    <p>Shot # ${$index+1}</p>
+    <p class="roundedRect" if.bind="!s.penalty">${s.distance} m</p>
+  </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+      <p if.bind="s.penalty">Penalty</p>      
+      <p if.bind="s.club=='Putt'">Club : Putt</p>
+      <p if.bind="!s.penalty && s.club!='Putt' && s.lie=='Rough'">lie : ${s.lie} ${s.leftRight} - Club : ${s.club} - power : ${s.power}</p>
+      <p if.bind="!s.penalty && s.club!='Putt' && s.lie!='Rough'">lie : ${s.lie} - Club : ${s.club} - power : ${s.power}</p>
+    </div>
+  </div>
+<!--  <div class="card-footer no-border">
+    <a href="#" class="link" click.delegate="deleteRound(round)">Delete</a>
+    <a href="#" class="link">Comment</a>
+    <a href="#" class="link" click.delegate="viewRoundStats(round)">Stats</a>
+  </div>
+--></div>
+ 
+</template>

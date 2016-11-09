@@ -1,0 +1,33 @@
+<template>
+    <h3>search for a course</h3>
+   <form class="searchbar theme-gray searchbar-active" >
+        <div class="searchbar-input white">
+            <input type="search" value.bind="searchText & debounce:350" placeholder="search for a course">
+            <a href="#" class="searchbar-clear" click.delegate="clearSearchBar()"></a>
+        </div>
+        <a href="#" class="searchbar-cancel" click.delegate="clearSearchBar()">Cancel</a>
+    </form>
+    <div class="list-block list-block-search searchbar-found">
+        <ul>
+<!--            <li class="item-content" repeat.for="course of coursesForSearch"">
+-->            <li class="content-block" repeat.for="course of coursesForSearch"">
+                <div>
+                    <div class="row">
+                        <div class="col-55">
+                            ${course.courseData.courseName} - ${course.courseData.country}
+                        </div>
+                        <div class="col-20">
+                            <a href="#" class="button button-fill color-green" click.delegate="startRound(course._id)">Play</a>
+                        </div>
+                        <div class="col-20">
+                            <a href="#" class="button button-fill color-blue"  click.delegate="viewCourse(course._id)">Edit</a>
+                        </div>
+                        <div class="col-5">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!--    <a href="#" class="button button-fill color-green" click.delegate="testGPS()">test GPS</a>
+--></template>

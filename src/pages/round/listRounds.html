@@ -1,0 +1,84 @@
+<template>
+<!--    <style>
+    .facebook-card .card-header {
+        display: block;
+        padding: 10px;
+    }
+    .facebook-card .facebook-avatar {
+        float: left;
+    }
+    .facebook-card .facebook-name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .facebook-card .facebook-date {
+        font-size: 13px;
+        color: #8e8e93;
+    }
+    .facebook-card .card-footer {
+        background: #fafafa;
+    }
+    .facebook-card .card-footer a {
+        color: #81848b;
+        font-weight: 500;
+    }
+    .facebook-card .card-content img {
+        display: block;
+    }
+    .facebook-card .card-content-inner {
+        padding: 15px 10px;
+    }  
+    </style>
+-->
+<!--<div style="padding: 10px;">Played Rounds on ${course.courseData.courseName}</div>
+-->
+<div class="content-block-title">Played Rounds on ${course.courseData.courseName}</div>
+
+<div class="list-block media-list">
+  <ul>
+    <li repeat.for="round of rounds" class="swipeout">
+      <div class="swipeout-content item-content">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">Player name : ${round.playerName}</div>
+            <div class="item-after">${getDateTime(round.dateTime).day} at ${getDateTime(round.dateTime).hour}</div>
+          </div>
+          <div class="item-subtitle"># holes played : ${round.roundData.holes.length}</div>
+          <div class="item-text">Brut score : ${getRoundScore(round)}</div>
+        </div>
+      </div>
+<!--      <div class="swipeout-actions-left">
+        <a href="#" class="bg-red" click.delegate="deleteRound(round)">Delete</a>
+        <a href="#" class="bg-green">Edit</a>
+      </div>
+-->      <div class="swipeout-actions-right">
+        <a href="#" class="bg-red" click.delegate="deleteRound(round)">Delete</a>
+        <a href="#" class="bg-green" click.delegate="editRound(round)">Edit</a>
+        <a href="#" class="bg-lightblue" click.delegate="viewRound(round)">View</a>
+        <a href="#" class="bg-pink" click.delegate="viewRoundStats(round)">Stats</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!--<div class="content-block-title">Played Rounds on ${course.courseData.courseName}</div>
+ 
+<div repeat.for="round of rounds" class="card facebook-card">
+  <div class="card-header no-border">
+    <div class="facebook-name">Player name : ${round.playerName}</div>
+    <div class="facebook-date">Played on ${getDateTime(round.dateTime).day} at ${getDateTime(round.dateTime).hour}</div>
+  </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+      <p># holes played : ${round.roundData.holes.length}</p>
+      <p>Brut score : ${getRoundScore(round)}</p>
+    </div>
+  </div>
+  <div class="card-footer no-border">
+    <a href="#" class="link" click.delegate="deleteRound(round)">Delete</a>
+    <a href="#" class="link">Comment</a>
+    <a href="#" class="link" click.delegate="viewRoundStats(round)">Stats</a>
+  </div>
+</div>
+--> 
+</template>

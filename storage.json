@@ -1,0 +1,80 @@
+[
+  {
+    "type": "round",
+    "roundData": {
+      "courseName": "La Bruyere",
+      "dateTime": "20160910T12:00:00",
+      "player": "Philippe",
+      "holes": [
+        {
+          "number": 1,
+          "shots": [
+            {
+              "shot": 1,
+              "club": "DR",
+              "power": "Full",
+              "lie": "F",
+              "result": "F",
+              "lat": "50°30'32''",
+              "long": "4°45'10''"
+            },
+            {
+              "shot": 2,
+              "club": "I3",
+              "power": "Full",
+              "lie": "LR",
+              "result": "R",
+              "put": 3,
+              "lat": "50°30'32''",
+              "long": "4°45'10''"
+            },
+            {
+              "shot": 3,
+              "club": "Put",
+              "put": 3,
+              "lat": "50°30'32''",
+              "long": "4°45'10''"
+            },
+            {
+              "shot": 4,
+              "club": "Put",
+              "put": 0.5,
+              "lat": "50°30'32''",
+              "long": "4°45'10''"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "course",
+    "courseData": {
+      "courseName": "La Bruyere",
+      "country": "Belgium",
+      "par": 72,
+      "SSS": 72.7,
+      "slope": 120,
+      "holes": [
+        {
+          "number": 1,
+          "strokeIndex": 1,
+          "lengthM": "420"
+        },
+        {
+          "number": 2,
+          "strokeIndex": 3,
+          "lengthM": "210"
+        }
+      ]
+    }
+  },
+  {
+    "type": "player",
+    "playerData": {
+      "playerName": "Destrais",
+      "gender": "male",
+      "hcp": "9"
+    }
+  }
+]
